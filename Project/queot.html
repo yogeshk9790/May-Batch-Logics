@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Quote - Vehicle Transport</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Get a Vehicle Transport Quote</h2>
+    <form action="/submit-quote" method="post">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required />
+
+      <label for="vehicle-type">Vehicle Type</label>
+      <select id="vehicle-type" name="vehicle_type" required>
+        <option value="Car">Car</option>
+        <option value="Motorcycle">Motorcycle</option>
+        <option value="Truck">Truck</option>
+        <option value="SUV">SUV</option>
+      </select>
+
+      <label for="pickup">Pickup Location</label>
+      <input type="text" id="pickup" name="pickup" placeholder="Enter pickup location" required />
+
+      <label for="dropoff">Drop-off Location</label>
+      <input type="text" id="dropoff" name="dropoff" placeholder="Enter drop-off location" required />
+
+      <button type="submit">Get a Quote</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Damage Claim Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f4f4f4;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .claim-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="file"] {
+      padding: 0.4rem;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="claim-form">
+    <h2>Damage Claim Form</h2>
+    <form id="damageForm">
+
+      <div class="form-group">
+        <label for="bookingId">Booking ID *</label>
+        <input type="text" id="bookingId" name="bookingId" required />
+        <div class="error" id="bookingIdError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicleNumber">Vehicle Number *</label>
+        <input type="text" id="vehicleNumber" name="vehicleNumber" required />
+        <div class="error" id="vehicleNumberError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="incidentDate">Date of Incident *</label>
+        <input type="date" id="incidentDate" name="incidentDate" required />
+        <div class="error" id="incidentDateError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Describe the Damage *</label>
+        <textarea id="description" name="description" rows="4" required></textarea>
+        <div class="error" id="descriptionError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="photo">Upload Photo of Damage *</label>
+        <input type="file" id="photo" name="photo" accept=".jpg,.jpeg,.png" required />
+        <div class="error" id="photoError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="contact">Your Contact Email or Phone *</label>
+        <input type="text" id="contact" name="contact" required />
+        <div class="error" id="contactError"></div>
+      </div>
+
+      <button type="submit">Submit Claim</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("damageForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fields = ["bookingId", "vehicleNumber", "incidentDate", "description", "photo", "contact"];
+      let isValid = true;
+
+      fields.forEach(field => {
+        const input = document.getElementById(field);
+        const errorDiv = document.getElementById(field + "Error");
+
+        if (!input.value || (field === "photo" && input.files.length === 0)) {
+          errorDiv.textContent = "This field is required.";
+          isValid = false;
+        } else {
+          errorDiv.textContent = "";
+        }
+      });
+
+      if (isValid) {
+        alert("Damage claim submitted successfully!");
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>

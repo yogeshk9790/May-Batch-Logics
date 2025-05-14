@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vehicle Transport Insurance Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="file"] {
+      padding: 0.3rem;
+    }
+
+    button {
+      background: #007bff;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Vehicle Insurance Form</h2>
+    <form id="insuranceForm">
+      
+      <div class="form-group">
+        <label for="ownerName">Owner Name *</label>
+        <input type="text" id="ownerName" name="ownerName" required>
+        <div class="error" id="ownerNameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+        <div class="error" id="emailError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicleNumber">Vehicle Number *</label>
+        <input type="text" id="vehicleNumber" name="vehicleNumber" required>
+        <div class="error" id="vehicleNumberError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="vehicleType">Vehicle Type *</label>
+        <select id="vehicleType" name="vehicleType" required>
+          <option value="">Select type</option>
+          <option value="Car">Car</option>
+          <option value="Bike">Bike</option>
+          <option value="Truck">Truck</option>
+        </select>
+        <div class="error" id="vehicleTypeError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="insuranceType">Insurance Type *</label>
+        <select id="insuranceType" name="insuranceType" required>
+          <option value="">Choose insurance</option>
+          <option value="Comprehensive">Comprehensive</option>
+          <option value="Third-party">Third-party</option>
+        </select>
+        <div class="error" id="insuranceTypeError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="insuranceFile">Upload Insurance Document (PDF/JPG)</label>
+        <input type="file" id="insuranceFile" name="insuranceFile" accept=".pdf,.jpg,.jpeg,.png">
+      </div>
+
+      <div class="form-group">
+        <label for="remarks">Remarks</label>
+        <textarea id="remarks" name="remarks" rows="3"></textarea>
+      </div>
+
+      <button type="submit">Submit Insurance Info</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("insuranceForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      let isValid = true;
+
+      const fields = ["ownerName", "email", "vehicleNumber", "vehicleType", "insuranceType"];
+
+      fields.forEach(field => {
+        const value = document.getElementById(field).value.trim();
+        const errorDiv = document.getElementById(field + "Error");
+        if (!value) {
+          errorDiv.textContent = "This field is required.";
+          isValid = false;
+        } else {
+          errorDiv.textContent = "";
+        }
+      });
+
+      if (isValid) {
+        alert("Insurance form submitted successfully!");
+        // In real app, send data to backend here
+        document.getElementById("insuranceForm").reset();
+      }
+    });
+  </script>
+
+</body>
+</html>

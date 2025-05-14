@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vehicle Transport Payment</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .payment-box {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .qr-code {
+      width: 200px;
+      height: auto;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    p {
+      margin: 10px 0 20px;
+      color: #555;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #0d6efd;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #084ec4;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-box">
+    <h2>Pay for Vehicle Transport</h2>
+
+    <!-- QR Code Display -->
+    <img src="E:\Project\WhatsApp Image 2025-04-17 at 11.54.23 AM.jpeg" alt="Scan QR to Pay" class="qr-code">
+    <p> Scan this QR code to pay via UPI</p>
+
+    <!-- Razorpay Button -->
+   
+
+  <script>
+    document.getElementById('payBtn').onclick = function (e) {
+      var options = {
+        "key": "rzp_test_YourKeyHere", // Replace with your Razorpay test or live key
+        "amount": "50000", // Amount is in paise: 50000 = ₹500
+        "currency": "INR",
+        "name": "Vehicle Transport",
+        "description": "Transport Booking Payment",
+        "image": "https://yourwebsite.com/logo.png", // Optional company logo
+        "handler": function (response) {
+          alert("Payment successful!\nPayment ID: " + response.razorpay_payment_id);
+          // You can send response.razorpay_payment_id to your backend for verification
+        },
+        "prefill": {
+          "name": "John Doe",
+          "email": "john@example.com",
+          "contact": "9876543210"
+        },
+        "theme": {
+          "color": "#0d6efd"
+        }
+      };
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+      e.preventDefault();
+    };
+  </script>
+
+</body>
+</html>

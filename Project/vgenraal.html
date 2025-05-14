@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>General Inquiry Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .inquiry-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="inquiry-form">
+    <h2>General Inquiry</h2>
+    <form id="inquiryForm">
+      <div class="form-group">
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" name="fullName" required />
+        <div class="error" id="fullNameError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required />
+        <div class="error" id="emailError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required />
+        <div class="error" id="phoneError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="contactMethod">Preferred Contact Method *</label>
+        <select id="contactMethod" name="contactMethod" required>
+          <option value="">Select</option>
+          <option value="Email">Email</option>
+          <option value="Phone">Phone</option>
+        </select>
+        <div class="error" id="contactMethodError"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Your Message *</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <div class="error" id="messageError"></div>
+      </div>
+
+      <button type="submit">Send Inquiry</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("inquiryForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fields = ["fullName", "email", "phone", "contactMethod", "message"];
+      let isValid = true;
+
+      fields.forEach((field) => {
+        const input = document.getElementById(field);
+        const errorDiv = document.getElementById(field + "Error");
+        if (!input.value.trim()) {
+          errorDiv.textContent = "This field is required.";
+          isValid = false;
+        } else {
+          errorDiv.textContent = "";
+        }
+      });
+
+      if (isValid) {
+        alert("Inquiry submitted successfully!");
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>

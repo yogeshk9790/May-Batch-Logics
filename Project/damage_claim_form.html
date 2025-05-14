@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damage Claim Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #message {
+            display: none;
+            color: green;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Damage Claim Form</h2>
+        <form id="damageClaimForm">
+            <div class="form-group">
+                <label for="claimNumber">Claim Number:</label>
+                <input type="text" id="claimNumber" name="claimNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Damage Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="button-container">
+                <button type="submit">Submit Claim</button>
+            </div>
+        </form>
+        <p id="message">Your damage claim has been submitted successfully!</p>
+    </div>
+    
+    <script>
+        document.getElementById("damageClaimForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let claimNumber = document.getElementById("claimNumber").value;
+            let fullName = document.getElementById("fullName").value;
+            let email = document.getElementById("email").value;
+            let description = document.getElementById("description").value;
+
+            if (!claimNumber || !fullName || !email || !description) {
+                alert("Please fill out all fields.");
+                return;
+            }
+            
+            document.getElementById("message").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("message").style.display = "none";
+                document.getElementById("damageClaimForm").reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

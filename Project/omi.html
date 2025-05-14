@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Transport</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            transition: background-color white;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: purple;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 25px;
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6f61;
+        }
+
+        nav a.active {
+            color: #ff6f61;
+            border-bottom: 2px solid #ff6f61;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color:rgb(209, 13, 209);
+            color: white;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        
+        
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background-color: #ff6f61;
+            padding: 12px 30px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+
+        }
+
+        .cta-btn:hover {
+            background-color: #ff4500;
+            transform: translateY(-5px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 60px 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            color: purple;
+            margin-bottom: 30px;
+        }
+
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .service-card {
+            background-color: #f1f1f1;
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            color: purple;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: #666;
+        }
+        
+
+        .omkar:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            padding: 20px,20px,20px,20px;
+        }
+
+        .omkar{
+            background-color: #f1f1f1;
+            padding: 12px 30px;
+            border: none;
+            color: white;
+            font-size: 20px;
+            text-transform: uppercase;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 170px;
+            text-align: center;
+
+        }
+
+        /* Footer */
+        footer {
+            background-color: purple;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home" class="nav-link" onclick="changeBackgroundColor('#0096c7')">Home</a>
+        <a href="E:\Project\about.html" class="nav-link" onclick="changeBackgroundColor('#0096c5')">About US</a>
+        <a href="#services" class="nav-link" onclick="changeBackgroundColor('#ffffff')">Services</a>
+        <a href="E:\Project\contactbuddy.html" class="nav-link" onclick="changeBackgroundColor('#f0f4f8')">Contact</a>
+        <a href="E:\Project\transport.html"> Booking </a>
+        
+        
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+          
+            <span id="element"></span><br><br>
+            <h1>Vehicle Booking & Transport</h1></span>
+            <p><b>We Ensure Safe and Timely Delivery of Your Vehicles</b></p>
+            
+            <button class="cta-btn"><a href="E:\Project\queot.html" style="text-decoration: none; color: white;"> Get a Free Quote</a></button>
+          
+
+           
+        </div>
+       
+    </section>
+ 
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="E:\Project\1.png" alt="Car Transport">
+                <h3>Car Transport</h3>
+                <p>Secure and fast transport for your car, delivered to any location.</p>
+            </div>
+            <div class="service-card">
+                <img src="E:\Project\2.png" alt="Motorcycle Transport">
+                <h3>Motorcycle Transport</h3>
+                <p>Specialized services for safely transporting your motorcycle across the country.</p>
+            </div>
+            <div class="service-card">
+                <img src="E:\Project\3.webp" alt="Truck Transport">
+                <h3>Truck Transport</h3>
+                <p>We handle the transportation of large trucks with care and precision.</p>
+            </div>
+        </div>
+    </section>
+    <center>
+        <div class="omkar">
+    <a href="E:\Project\feedback_form.html" style="text-decoration: none; color: blue;">Feedback</a></div></center>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Vehicle Transport Services. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to change the background color of the body when a navigation link is clicked
+        function changeBackgroundColor(color) {
+            document.body.style.backgroundColor = white;
+
+            // Remove active class from all links
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+
+            // Add active class to the clicked link
+            event.target.classList.add('active');
+        }
+    </script>
+
+        <h1><script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" ></script>
+            
+        <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['Car Transport', 'Motorcycle Transport' , 'Truck Transport'  ],
+      typeSpeed: 50,
+    });
+  </script></h1>
+
+  
+
+</body>
+</html>
